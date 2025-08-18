@@ -1,50 +1,27 @@
 import {View, Text, StyleSheet} from 'react-native'
-
+import  Header from './src/components/Header'
+import Footer from './src/components/Footer'
+import Card from './src/components/Card'
 
 export default function App () {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Logo</Text>
-        <View style={styles.menu}></View>
-      </View>
+    <Header />
+
 
       <View style={styles.content}>
 
-        <View style={styles.card1}>
-          <View style={styles.square}></View>
+        
+        <Card />
+        <Card />
 
-          <View style={styles.text}>
-            <View style={styles.title}>Card 1</View>
-            <View style={styles.p}>Meu primeiro Card,
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </View>
-          </View>
-          
-        </View>
-
-        <View style={styles.card2}>
-          <View style={styles.square}></View>
-
-          <View style={styles.text}>
-            <View style={styles.title}>Card 2</View>
-            <View style={styles.p}>Meu segundo Card,
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </View>
-          </View>
-
-        </View>
 
         <View style={styles.button}>
           <Text style={styles.titleb}>Ver mais</Text>
         </View>
       </View>
 
-      <View style={styles.footer}>
-        <Text>Gabriel Muniz</Text>
-      </View>
+      <Footer />
 
     </View>
   )
@@ -57,26 +34,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  header: {
-    flex: 1,
-    width: "100%",
-    backgroundColor: "#3daff1",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
-    paddingHorizontal: 20,
-  },
   content: {
     flex: 7,
     width: "100%",
     backgroundColor: "#c3c3c3ff",
     padding: "20%"
-  },
-  menu: {
-    width: 40,
-    height: 40,
-    backgroundColor: "#050505ff",
-  },
+},
   card1: {
     width: "100%",
     height: 200,
@@ -134,12 +97,4 @@ const styles = StyleSheet.create({
     textAlign: "center",
     lineHeight: 50,
   },
-  footer: {
-    flex: 3,
-    width: "100%",
-    backgroundColor: "#3daff1",
-    justifyContent: "center",
-    alignItems: "center",
-  }
-
 })

@@ -13,3 +13,5 @@
 
 # Notes
 - A estilização dos componentes no react.native são feitas no CSS-in-JS, inspirado no CSS, mas não é o mesmo código.
+- React é um framework para criar um layot baseado em componentes.
+- Componentes = Parte do layout que é possível separar, facilitando a organização e a manutenção.
