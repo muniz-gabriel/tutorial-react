@@ -1,59 +1,46 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from "react-native";
+import { Image } from "expo-image";
 
-function Card() {
-    return (
-    <View style={styles.card1}>
-              <View style={styles.square}></View>
-    
-              <View style={styles.text}>
-                <View style={styles.title}>Card 1</View>
-                <View style={styles.p}>Meu primeiro Card,
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </View>
-              </View>
-              
-            </View>
-    )
+function Card({ title, desc, img }) {
+  return (
+    <View style={styles.card}>
+      <Image style={styles.image} source={img} />
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.desc}>{desc}</Text>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    card1: {
-        width: "100%",
-        height: 200,
-        backgroundColor: "#f1f1f1",
-        marginTop: 20,
-        borderRadius: 10,
-        padding: 20,
-      },
-      square: {
-        width: 100,
-        height: 100,
-        backgroundColor: "#050505ff",
-        marginTop: 20,
-        borderRadius: 10,
-        padding: 20,
-        
-      },
-      text: {
-        marginLeft: 120,
-        justifyContent: "center",
-        alignItems: "flex-start",
-        flex: 1,
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-        marginTop: -150,
-      },
-      title: {
-        color: "#000",
-        fontSize: 20,
-        fontWeight: "bold",
-      },
-      p: {
-        color: "#000",
-        fontSize: 16,
-      }
+  card: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#f1f1f1",
+    borderRadius: 10,
+    padding: 16,
+    marginTop: 20,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+  },
+  textContainer: {
+    flex: 1,
+    marginLeft: 16,
+  },
+  title: {
+    color: "#000",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  desc: {
+    color: "#000",
+    fontSize: 14,
+    marginTop: 4,
+  },
 });
-
 
 export default Card;

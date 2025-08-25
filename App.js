@@ -1,100 +1,65 @@
-import {View, Text, StyleSheet} from 'react-native'
-import  Header from './src/components/Header'
-import Footer from './src/components/Footer'
-import Card from './src/components/Card'
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import Header from './src/components/Header';
+import Footer from './src/components/Footer';
+import Card from './src/components/Card';
 
-export default function App () {
+export default function App() {
   return (
     <View style={styles.container}>
-    <Header />
+      <Header />
 
+      <ScrollView style={styles.content}>
+        <Card
+          title="House of Dragons"
+          desc="Guerra pelo trono com Dragões"
+          img="https://classic.exame.com/wp-content/uploads/2022/08/house-of-the-dragon.jpg"
+        />
 
-      <View style={styles.content}>
+        <Card
+          title="Lord of The Rings"
+          desc="Batalha contra Sauron"
+          img="https://m.media-amazon.com/images/S/pv-target-images/6371c93d1bc13c04f6db4cff153a4c5b8da969b204254cbad3cd6140b6e3713c._SX1080_FMjpg_.jpg"
+        />
 
-        
-        <Card />
-        <Card />
-
+        <Card
+          title="Game of Thrones"
+          desc="Reinos lutando pelo Trono de Ferro"
+          img="https://br.web.img3.acsta.net/pictures/19/03/21/16/15/4239577.jpg"
+        />
 
         <View style={styles.button}>
           <Text style={styles.titleb}>Ver mais</Text>
         </View>
-      </View>
+      </ScrollView>
 
       <Footer />
-
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    backgroundColor: "#5bf13dff",
-    justifyContent: "center",
-    alignItems: "center"
+    flex: 1,
+    backgroundColor: "#5bf13d",
   },
   content: {
-    flex: 7,
-    width: "100%",
-    backgroundColor: "#c3c3c3ff",
-    padding: "20%"
-},
-  card1: {
-    width: "100%",
-    height: 200,
-    backgroundColor: "#f1f1f1",
-    marginTop: 20,
-    borderRadius: 10,
-    padding: 20,
-  },
-  card2: {
-    width: "100%",
-    height: 200,
-    backgroundColor: "#f1f1f1",
-    marginTop: 20,
-    borderRadius: 10,
-    padding: 20,
-  },
-  square: {
-    width: 100,
-    height: 100,
-    backgroundColor: "#050505ff",
-    marginTop: 20,
-    borderRadius: 10,
-    padding: 20,
-    
-  },
-  text: {
-    marginLeft: 120,
-    justifyContent: "center",
-    alignItems: "flex-start",
     flex: 1,
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    marginTop: -150,
-  },
-  title: {
-    color: "#000",
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  p: {
-    color: "#000",
-    fontSize: 16,
+    width: "100%",
+    backgroundColor: "#c3c3c3",
+    padding: 16,
   },
   button: {
     width: "100%",
     height: 50,
-    backgroundColor: "#050505ff",
+    backgroundColor: "#050505",
     borderRadius: 10,
     marginTop: 20,
+    justifyContent: "center",
+    alignItems: "center",
   },
   titleb: {
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
-    textAlign: "center",
-    lineHeight: 50,
   },
-})
+});
