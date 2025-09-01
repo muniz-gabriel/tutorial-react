@@ -15,3 +15,5 @@
 - A estilização dos componentes no react.native são feitas no CSS-in-JS, inspirado no CSS, mas não é o mesmo código.
 - React é um framework para criar um layot baseado em componentes.
 - Componentes = Parte do layout que é possível separar, facilitando a organização e a manutenção.
+- Quando instalado, usamos o '--template' e blank para não vir o TypeScript o
+- Quais tipos de navegação pode ser usada no expo.router? = Stack (pilhas), Tabs (guias), Drawer (gavetas), Modals (modais).

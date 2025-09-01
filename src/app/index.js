@@ -1,13 +1,22 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import Header from './src/components/Header';
-import Footer from './src/components/Footer';
-import Card from './src/components/Card';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Card from '../components/Card';
+import { Link } from 'expo-router';
 
-export default function App() {
+export default function Home() {
   return (
     <View style={styles.container}>
       <Header />
 
+      {/* Links principais */}
+      <View style={styles.navLinks}>
+        <Link href={'/contact'}><Text style={styles.link}>Contato</Text></Link>
+        <Link href={'/about'}><Text style={styles.link}>Sobre</Text></Link>
+        <Link href={'/profile'}><Text style={styles.link}>Perfil</Text></Link>
+      </View>
+
+      {/* Conteúdo principal */}
       <ScrollView style={styles.content}>
         <Card
           title="House of Dragons"
@@ -27,9 +36,9 @@ export default function App() {
           img="https://br.web.img3.acsta.net/pictures/19/03/21/16/15/4239577.jpg"
         />
 
-        <View style={styles.button}>
+        <TouchableOpacity style={styles.button}>
           <Text style={styles.titleb}>Ver mais</Text>
-        </View>
+        </TouchableOpacity>
       </ScrollView>
 
       <Footer />
@@ -40,18 +49,28 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#5bf13d",
+    backgroundColor: "#000", // fundo preto
+  },
+  navLinks: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    paddingVertical: 10,
+    backgroundColor: "#111",
+  },
+  link: {
+    color: "#e50914", // vermelho Netflix style
+    fontSize: 16,
+    fontWeight: "bold",
   },
   content: {
     flex: 1,
     width: "100%",
-    backgroundColor: "#c3c3c3",
     padding: 16,
   },
   button: {
     width: "100%",
     height: 50,
-    backgroundColor: "#050505",
+    backgroundColor: "#e50914",
     borderRadius: 10,
     marginTop: 20,
     justifyContent: "center",
@@ -59,7 +78,7 @@ const styles = StyleSheet.create({
   },
   titleb: {
     color: "#fff",
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
   },
 });

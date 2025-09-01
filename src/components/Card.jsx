@@ -17,10 +17,15 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f1f1f1",
-    borderRadius: 10,
+    backgroundColor: "#fff", // card branco
+    borderRadius: 12,
     padding: 16,
     marginTop: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 4,
   },
   image: {
     width: 100,
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   title: {
-    color: "#000",
+    color: "#e50914", // título em vermelho
     fontSize: 18,
     fontWeight: "bold",
   },

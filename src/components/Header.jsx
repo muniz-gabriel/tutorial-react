@@ -5,14 +5,16 @@ import Entypo from '@expo/vector-icons/Entypo';
 function Header() {
   return (
     <View style={styles.header}>
-    <View style={styles.logo}>
+      <View style={styles.logo}>
         <Image 
-        style={styles.image}
-        source={require('../../assets/img/logo.jpg')}
+          style={styles.image}
+          source={require('../../assets/img/logo.jpg')}
         />
-        <Text style={styles.tipo}>Movie<Text style={{color: '#3daff1'}}></Text></Text>
-    </View>
-    <Entypo name="menu" size={30} color="#FFF" />
+        <Text style={styles.tipo}>
+          Movie <Text style={{ color: '#e50914' }}>Wiki</Text>
+        </Text>
+      </View>
+      <Entypo name="menu" size={30} color="#fff" />
     </View>
   );
 }
@@ -21,32 +23,29 @@ const styles = StyleSheet.create({
   header: {
     height: 60,
     width: "100%",
-    backgroundColor: "#3daff1",
+    backgroundColor: "#111",
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
     paddingHorizontal: 20,
-  },
-  menu: {
-    width: 40,
-    height: 40,
-    backgroundColor: "#ffffffff"
+    borderBottomWidth: 1,
+    borderBottomColor: "#222",
   },
   image: { 
     width: 35, 
-    height: 35
+    height: 35,
+    borderRadius: 8,
   },
-  logotipo:{
+  logo: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 10
+    gap: 10,
   },
   tipo: {
     fontSize: 18,
     color: "#fff",
-    fontWeight: "bold"
+    fontWeight: "bold",
   }
-
 });
 
 export default Header;
