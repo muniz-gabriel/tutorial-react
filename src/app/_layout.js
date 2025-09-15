@@ -15,6 +15,10 @@ export default function Layout() {
                 name="singup"
                 options={{ title: "Cadastrar" }}
             />
+                <Stack.Screen
+                name="editUser"
+                options={{ title: "Editar Perfil" }}
+            />
                 <Stack.Screen   
                 name="(tabs)"
                 options={{ headerShown: false }}

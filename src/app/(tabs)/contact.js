@@ -27,14 +27,15 @@ export default function Contact() {
     return (
         <View style={styles.container}>
             <Text>Página de Contato</Text>
-            {users.map((user) => {
+            {users.map((user) => (
                 <CardUser 
                     key={user.id}
+                    id={user.id}
                     name={user.name}
                     email={user.email}
                     avatar={user.avatar}
                 />
-            })}
+            ))}
 
         </View>
     )

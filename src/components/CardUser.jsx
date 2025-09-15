@@ -1,20 +1,49 @@
-import { View, Text, StyleSheet } from "react-native";
-import { Image } from "expo-image";
+import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { Image } from 'expo-image';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Feather from '@expo/vector-icons/Feather';
+import { useRouter } from 'expo-router';
 
-function CardUser({ name, email, avatar }) {
+function CardUser({ id, name, email, avatar }) {
+
+  const router = useRouter()
+
+  const handleDelete = async () => {
+    const response = await fetch(`http://localhost:3000/user/${id}`, {
+        method: 'DELETE',
+    })
+    
+    if (response.ok) {
+        console.log('Usuário deletado com sucesso.')
+        //const updatedUsers = users.filter(user => user.id !== id); // Filtra o usuário deletado
+    } else {
+        console.log('Erro ao deletar usuário.')
+    }
+  }
+
+  const handleEdit = () => {
+    console.log("Editar usuário")
+    router.push({
+      pathname: '/editUser',
+      params: { id, name, email, avatar }
+    })
+  }
+
   return (
     <View style={styles.card}>
-      <Image 
-        style={styles.image} 
-        source={avatar} />
-
+      <Image style={styles.image} source={{ uri: avatar }} />
+      
       <View style={styles.name}>
-        <Text style={styles.title_card}>{name}</Text>
+        <Text style={styles.titulo_card}>{name}</Text>
         <Text style={styles.email}>{email}</Text>
       </View>
 
+      <View>
+        <Pressable onPress={handleDelete} >
+            <EvilIcons name="trash" size={24} color="black" />
+        </Pressable>
+      </View>
     </View>
-
   );
 }
 
