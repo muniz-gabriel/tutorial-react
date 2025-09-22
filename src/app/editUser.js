@@ -1,5 +1,5 @@
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
-import { useRouter } from 'expo-router'
+import { useGlobalSearchParams, useRouter } from 'expo-router'
 import { useState } from 'react'
 
 export default function EditUser() {
@@ -7,13 +7,14 @@ export default function EditUser() {
     //TODO: implementar a edição de usuário
 
     const router = useRouter()
+    const { id, name: eName, email: eEmail, avatar: eAvatar } = useGlobalSearchParams()
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
     const [avatar, setAvatar] = useState("")
 
-    const handleSignup = async () => {
+    const handleEdit = async () => {
 
         const profile = {
             name,
@@ -22,8 +23,8 @@ export default function EditUser() {
             avatar
         }
 
-        const response = await fetch("http://localhost:3000/profile", {
-            method: "POST",
+        const response = await fetch(`http://localhost:3000/profile/${id}`, {
+            method: "PuT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -31,8 +32,17 @@ export default function EditUser() {
         })
 
         if(response.ok){
-            console.log("Cadastrado com sucesso")
-            router.navigate('/login')
+            console.log("Perfil editado com sucesso")
+            router.navigate('/contact')
+            //atuaLizar a lista de usuários na store
+            const updatedUsers = users.map(user => {
+                if(user.id === id){
+                    return {id, ...profile }
+                }
+                return user
+            })
+            setUsers(updatedUsers)
+            router.push('/contact')
         } else {
             console.log("Erro ao cadastrar")
         }
@@ -72,7 +82,7 @@ export default function EditUser() {
             <View style={{ marginTop: 20 }}>
                 <Button 
                     title='Cadastrar'
-                    onPress={handleSignup}
+                    onPress={handleEdit}
                 />
             </View>
             

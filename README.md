@@ -19,8 +19,9 @@
 - Quais tipos de navegação pode ser usada no expo.router? = Stack (pilhas), Tabs (guias), Drawer (gavetas), Modals (modais).
 - Hooks: são funções auxiliares que fazem parte da biblioteca React. Todos começam com a palavra “use”, exemplo -> const router = useRouter( ).
 - UseState é do React.
-- Hook são uma série de funções epeciais usadas pelo React. O padrão é que começem com 'use'.
+- Rook são uma série de funções epeciais usadas pelo React. O padrão é que começem com 'use'.
 - Useeffect é um Rook que dispara um efeito/função sempre que o componente é montado ou sempre que um estado está sendo observado é alterado, exibido.
+- Qual a diferença de uma variável normal pra um state global do react? = Uma variavel que serve pra vários componentes ao mesmo tempo (atualização em todos componentes usando state)
 
 
 # Tópicos Importantes

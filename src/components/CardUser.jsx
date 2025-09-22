@@ -3,6 +3,7 @@ import { Image } from 'expo-image';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Feather from '@expo/vector-icons/Feather';
 import { useRouter } from 'expo-router';
+import { useUserStore } from '../stores/useUserStore';
 
 function CardUser({ id, name, email, avatar }) {
 
