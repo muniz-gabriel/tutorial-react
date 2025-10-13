@@ -1,18 +1,19 @@
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
-import { useGlobalSearchParams, useRouter } from 'expo-router'
-import { useState } from 'react'
+import { useRouter, useGlobalSearchParams } from 'expo-router'
+import { useState  } from 'react'
+import { useUserStore } from '../stores/useUserStore'
 
 export default function EditUser() {
 
-    //TODO: implementar a edição de usuário
+    const {users, setUsers} = useUserStore()
 
     const router = useRouter()
-    const { id, name: eName, email: eEmail, avatar: eAvatar } = useGlobalSearchParams()
+    const {id, name: eName, email: eEmail, avatar: eAvatar} = useGlobalSearchParams()
 
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
+    const [name, setName] = useState(eName)
+    const [email, setEmail] = useState(eEmail)
     const [pass, setPass] = useState("")
-    const [avatar, setAvatar] = useState("")
+    const [avatar, setAvatar] = useState(eAvatar)
 
     const handleEdit = async () => {
 
@@ -23,8 +24,8 @@ export default function EditUser() {
             avatar
         }
 
-        const response = await fetch(`http://localhost:3000/profile/${id}`, {
-            method: "PuT",
+        const response = await fetch(`http://localhost:3333/profile/${id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -32,26 +33,25 @@ export default function EditUser() {
         })
 
         if(response.ok){
-            console.log("Perfil editado com sucesso")
-            router.navigate('/contact')
-            //atuaLizar a lista de usuários na store
+            console.log("Perfil editado com sucesso!")
+            //atualizar lista de usuários na store
             const updatedUsers = users.map(user => {
                 if(user.id === id){
-                    return {id, ...profile }
+                    return {id, ...profile}
                 }
                 return user
             })
             setUsers(updatedUsers)
-            router.push('/contact')
+            router.navigate('/contact')
         } else {
-            console.log("Erro ao cadastrar")
+            console.log("Erro ao Editar")
         }
     }
 
     return (
         <View style={styles.container}>
 
-        <Text style={styles.title}>Cadastre-se</Text>
+        <Text style={styles.title}>Editar Perfil</Text>
 
         <View style={{ width: '80%' }}>
             <Text style={styles.label}>Nome:</Text>
@@ -81,11 +81,10 @@ export default function EditUser() {
         </View>
             <View style={{ marginTop: 20 }}>
                 <Button 
-                    title='Cadastrar'
+                    title='Editar'
                     onPress={handleEdit}
                 />
             </View>
-            
         </View>
     )
 }

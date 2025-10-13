@@ -35,3 +35,8 @@
 - O estilo no React Native é igual do CSS da Web
 - O que são propriedades dos componentes
 - Navegação com Expo Router
+
+Parte 2
+
+- Scrollview x FlatList
+- AsyncStorage
