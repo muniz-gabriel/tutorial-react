@@ -36,6 +36,12 @@ export default function Home() {
           img="https://br.web.img3.acsta.net/pictures/19/03/21/16/15/4239577.jpg"
         />
 
+        <Card
+        title="Sandman"
+        desc="História de Morpheus, o Senhor dos Sonhos"
+        img="https://img.odcdn.com.br/wp-content/uploads/2023/07/AAAABfg6VIvXz9HJAKcxziOqsfY7HN2i00ysoREz46BR5nlrncajk_eCZLePxuuS11U6EvpGTZj8uiSLZnLpC7QX1PcOgxn7qOKjM9Qr.jpg"
+        />
+
         <TouchableOpacity style={styles.button}>
           <Text style={styles.titleb}>Ver mais</Text>
         </TouchableOpacity>

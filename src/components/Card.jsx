@@ -1,16 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
-import { Image } from "expo-image";
+import { View, Text, StyleSheet } from 'react-native'
+import {Image} from 'expo-image'
 
-function Card({ title, desc, img }) {
+function Card({title, desc, img}) {
+
   return (
-    <View style={styles.card}>
-      <Image style={styles.image} source={img} />
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.desc}>{desc}</Text>
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Image 
+          style={styles.image}
+          source={img}
+        />
+        <View style={styles.info}>
+          <Text style={styles.h1}>{title}</Text>
+          <Text>{desc}</Text>
+        </View>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
