@@ -1,26 +1,30 @@
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { useRouter} from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAuthStore } from '../../stores/useAuthStore';
+import { Image } from 'react-native';
 
 export default function Contact() {
 
     const router = useRouter()
+    const {profile, logout} = useRouter()
 
     const handleLogout = async () => {
-        await AsyncStorage.removeItem('lofado')
+        await AsyncStorage.removeItem('userLogged')
+        logout()
         router.replace('/login')
     }
+
     return (
         <View style={styles.container}>
-            <Text>Página de Profile</Text>
-            <Button 
-                title='Home' 
-                onPress={() => router.replace('/')}
+            <Image
+                source={profile.avatar || 'https://www.gravatar.com/avatar/'} 
+                style={{ width: 100, height: 100, borderRadius: 50, marginBottom: 20 }}
             />
-            <Button 
-                title='Sobre' 
-                onPress={() => router.push('about')}
-            />
+
+            <Text>{profile.name}</Text>
+            <Text>{profile.email}</Text>
+            
             <Button 
                 title='Logout'  
                 onPress={handleLogout}
